@@ -1,8 +1,10 @@
 
 <div class="products-page" *ngIf="allProducts">
     <div class="one-product" *ngFor="let product of allProducts">
-        <img src="http://smktesting.herokuapp.com/static/{{product?.img}}" alt="{{product?.title}}">
+        <img src="http://smktesting.herokuapp.com/static/{{product?.img}}"
+             alt="{{product?.title}}"
+             [routerLink]="['/products', product.id]">
         <span class="product-title">{{product?.title}}</span>
-        <button>Подробнее</button>
+        <button [routerLink]="['/products', product.id]">Подробнее</button>
     </div>
 </div>

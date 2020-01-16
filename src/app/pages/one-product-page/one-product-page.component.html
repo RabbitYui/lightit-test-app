@@ -1,0 +1,44 @@
+
+<div class="one-product" *ngIf="product">
+<!--    <button class="back btn"></button>-->
+    <div class="product-detail">
+        <div class="img-wrapper">
+            <img src="http://smktesting.herokuapp.com/static/{{product?.img}}" alt="{{product?.title}}">
+        </div>
+        <div class="description-block">
+            <h2>{{product.title}}</h2>
+            <p>{{product.text}}</p>
+        </div>
+    </div>
+    <div class="reviews">
+        <div class="show-reviews inside">
+            <div class="review" *ngFor="let rev of reviews">
+                <div class="review-top">
+                    <h4>{{rev.created_by.username}}</h4>
+                    <div class="user-rating">
+                        <span [ngClass]="rev.rate >= star? 'star' : 'no-star'"
+                              *ngFor="let star of [1,2,3,4,5]">★</span>
+                    </div>
+                </div>
+                <p class="review-text">
+                   {{rev.text}}
+                </p>
+            </div>
+        </div>
+        <div class="add-review inside">
+            <h4>Оставить отзыв</h4>
+            <form [formGroup]="reviewForm"  class="form" (ngSubmit)="onFormSubmit()">
+                <textarea class="comment-review" id="uReview" placeholder="Ваш Отзыв" formControlName="text"></textarea>
+                <div class="rate">
+                    <div class="rate-stars">
+                        <label *ngFor="let star of [5,4,3,2,1]; let i = index">
+                            <input type="radio" formControlName="rating" value="{{star}}">
+                            <span class="star" [ngClass]="reviewForm.controls['rating'].value >= star? 'star-yellow' : ''">★</span>
+                        </label>
+                    </div>
+                    <button type="submit">Оправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

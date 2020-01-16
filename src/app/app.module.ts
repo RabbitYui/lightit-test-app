@@ -7,18 +7,24 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 import {ProductsService} from './services/products.service';
 import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './Layouts/header/header.component';
+import { OneProductPageComponent } from './pages/one-product-page/one-product-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { AuthenticationPageComponent } from './pages/authentication-page/authentication-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    OneProductPageComponent,
+    AuthenticationPageComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
 })
