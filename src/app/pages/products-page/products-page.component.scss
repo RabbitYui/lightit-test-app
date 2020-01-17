@@ -3,12 +3,11 @@
 .products-page {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   padding: 50px 20px;
 
   .one-product {
     max-height: 300px;
-    min-width: 22%;
+    width: 22%;
     margin: 0 1.5% 25px;
     padding: 10px 10px 20px;
     display: flex;
@@ -22,6 +21,7 @@
     img {
       display: block;
       max-width: 100%;
+      max-height: 180px;
       margin: 0 auto;
       cursor: pointer;
     }
@@ -53,4 +53,8 @@
       }
     }
   }
+}
+
+@media (max-width: 600px) {
+  
 }

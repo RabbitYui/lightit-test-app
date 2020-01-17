@@ -9,9 +9,7 @@ export class ProductsService {
 
   public apiURL = 'http://smktesting.herokuapp.com/';
 
-  constructor(
-      private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable <any> {
     return this.http.get<any>(`${this.apiURL}api/products/`);

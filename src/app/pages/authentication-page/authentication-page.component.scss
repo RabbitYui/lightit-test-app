@@ -1,5 +1,76 @@
+@import "~src/assets/styles/global-variables";
 
 .auth-block {
   padding: 50px 20px;
 
+  .auth-form {
+    max-width: 500px;
+    padding: 10px 15px;
+    border: 1px solid #d7d7d7;
+    margin: 30px auto;
+    position: relative;
+    input {
+      width: 100%;
+      background: #f7f8fa;
+      height: 44px;
+      padding-left: 20px;
+      margin: 30px auto 0;
+      color: #7c7c7c;
+      border: none;
+      box-sizing: border-box;
+      &.ng-invalid.ng-dirty {
+        border: 1px solid darkred;
+      }
+    }
+
+
+    .btn {
+      width: 100%;
+      line-height: 36px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.3s linear;
+    }
+    .login {
+      border: 1px solid $header-dark;
+      color: #fff;
+      background-color: $header-dark;
+      margin: 25px auto;
+      &:after {
+        display: block;
+        content: "";
+        width: 100%;
+        margin: 26px auto;
+        border-bottom: 1px solid #d7d7d7;
+      }
+      &:hover {
+        background-color: #001f44;
+        border: 1px solid #001f44;
+        transition: all 0.3s linear;
+      }
+    }
+
+    .auth {
+      margin: 15px auto 10px;
+      border: 1px solid $header-light;
+      color: #000;
+      background-color: $header-light;
+      &:hover {
+        background-color: #001f44;
+        border: 1px solid #001f44;
+        transition: all 0.3s linear;
+        color: #fff;
+      }
+    }
+
+    span {
+      position: absolute;
+      bottom: 69px;
+      background-color: #fff;
+      left: 45%;
+      width: 55px;
+      text-align: center;
+    }
+  }
 }

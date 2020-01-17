@@ -1,3 +1,13 @@
 <div class="auth-block">
-    
+    <div class="auth-form">
+        <form [formGroup]="userForm">
+            <input type="text" formControlName="username" placeholder="Введите имя пользователя"> <br>
+            <input type="password" formControlName="password" placeholder="Введите пароль">
+            <button class="login btn" [disabled]="userForm.invalid"
+            (click)="userLogin()">Войти</button>
+            <span>или</span>
+            <button class="auth btn" [disabled]="userForm.invalid"
+            (click)="userRegister()">Зарегистрироваться</button>
+        </form>
+    </div>
 </div>

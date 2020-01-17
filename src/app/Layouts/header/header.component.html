@@ -1,5 +1,11 @@
 <div class="header">
     <div class="auth">
-        <button class="login" routerLink="auth"> Войти </button>
+        <button class="login" routerLink="auth"
+                *ngIf="userService.getToken() === ''"> Войти </button>
+        <div class="user-block" *ngIf="userService.getToken() !== ''">
+            <span>{{userService.getUsername()}}</span>
+            <button class="login"
+            (click)="userService.removeToken()">Выйти</button>
+        </div>
     </div>
 </div>
