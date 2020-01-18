@@ -55,6 +55,12 @@
   }
 }
 
-@media (max-width: 600px) {
-  
+@media (max-width: 400px) {
+  .products-page{
+    .one-product {
+      button {
+        font-size: 12px;
+      }
+    }
+  }
 }

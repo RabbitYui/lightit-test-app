@@ -3,12 +3,35 @@
 .auth-block {
   padding: 50px 20px;
 
+  .form-error {
+    color: $error-color;
+    margin-bottom: 10px;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    transition: width 1s;
+
+    &.visible {
+      width: 200px;
+    }
+  }
+
   .auth-form {
     max-width: 500px;
     padding: 10px 15px;
     border: 1px solid #d7d7d7;
     margin: 30px auto;
     position: relative;
+
+    .username-warning {
+      color: $error-color;
+      position: absolute;
+      padding-left: 20px;
+      font-size: 12px;
+      margin: 5px 0;
+    }
+
     input {
       width: 100%;
       background: #f7f8fa;
@@ -19,7 +42,7 @@
       border: none;
       box-sizing: border-box;
       &.ng-invalid.ng-dirty {
-        border: 1px solid darkred;
+        border: 1px solid $error-color;
       }
     }
 
@@ -64,7 +87,7 @@
       }
     }
 
-    span {
+    .or {
       position: absolute;
       bottom: 69px;
       background-color: #fff;

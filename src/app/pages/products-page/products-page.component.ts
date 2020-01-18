@@ -17,7 +17,6 @@ export class ProductsPageComponent implements OnInit {
     this.productsService.getAllProducts().subscribe(
       res => {
         this.allProducts = res;
-        console.log(this.allProducts);
       }
     );
   }

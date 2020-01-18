@@ -1,11 +1,18 @@
 <div class="auth-block">
+    <span class="form-error" [class.visible]="userForm.errors?.server"> Ошибка сервера</span>
     <div class="auth-form">
         <form [formGroup]="userForm">
+            <span class="username-warning" *ngIf="usernameError !== ''">{{usernameError}}</span>
+            <span class="username-warning" *ngIf="userForm.controls.username.errors?.pattern">
+                Недопустимые символы в имени</span>
             <input type="text" formControlName="username" placeholder="Введите имя пользователя"> <br>
+            <span class="username-warning" *ngIf="userForm.controls.password.errors?.minlength
+            || userForm.controls.password.errors?.maxlength">
+                Пароль должен быть от 4 до 8 символов</span>
             <input type="password" formControlName="password" placeholder="Введите пароль">
             <button class="login btn" [disabled]="userForm.invalid"
             (click)="userLogin()">Войти</button>
-            <span>или</span>
+            <span class="or">или</span>
             <button class="auth btn" [disabled]="userForm.invalid"
             (click)="userRegister()">Зарегистрироваться</button>
         </form>

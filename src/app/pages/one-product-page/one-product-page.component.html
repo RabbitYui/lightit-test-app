@@ -1,27 +1,26 @@
 
 <div class="one-product" *ngIf="product">
-<!--    <button class="back btn"></button>-->
     <div class="product-detail">
         <div class="img-wrapper">
             <img src="http://smktesting.herokuapp.com/static/{{product?.img}}" alt="{{product?.title}}">
         </div>
         <div class="description-block">
-            <h2>{{product.title}}</h2>
-            <p>{{product.text}}</p>
+            <h2>{{product?.title}}</h2>
+            <p>{{product?.text}}</p>
         </div>
     </div>
     <div class="reviews">
         <div class="show-reviews inside">
             <div class="review" *ngFor="let rev of reviews">
                 <div class="review-top">
-                    <h4>{{rev.created_by.username}}</h4>
+                    <h4>{{rev.created_by?.username}}</h4>
                     <div class="user-rating">
-                        <span [ngClass]="rev.rate >= star? 'star' : 'no-star'"
+                        <span [ngClass]="rev?.rate >= star? 'star' : 'no-star'"
                               *ngFor="let star of [1,2,3,4,5]">★</span>
                     </div>
                 </div>
                 <p class="review-text">
-                   {{rev.text}}
+                   {{rev?.text}}
                 </p>
             </div>
         </div>

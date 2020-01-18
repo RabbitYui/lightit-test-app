@@ -1,0 +1,37 @@
+@import "~src/assets/styles/global-variables";
+
+.back {
+  width: auto;
+  text-align: right;
+  margin-left: 30px;
+  padding-right: 25px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 44px;
+  height: 44px;
+  font-size: 15px;
+  cursor: pointer;
+  background: #fff;
+  color: #7c7c7c;
+  border: none;
+  font-family: "Open Sans";
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-bottom: 1px solid #7c7c7c;
+    border-right: 1px solid #7c7c7c;
+    width: 10px;
+    height: 10px;
+    top: 17px;
+    left: 0;
+    transform: rotate(135deg);
+  }
+  &:hover {
+    color: $button-primary-color;
+  }
+  &:hover:after {
+    border-top: 1px solid $button-primary-color;
+    border-left: 1px solid $button-primary-color;
+  }
+}

@@ -1,8 +1,8 @@
 <div class="header">
     <div class="auth">
         <button class="login" routerLink="auth"
-                *ngIf="userService.getToken() === ''"> Войти </button>
-        <div class="user-block" *ngIf="userService.getToken() !== ''">
+                *ngIf="!userService.userToken"> Войти </button>
+        <div class="user-block" *ngIf="userService.userToken">
             <span>{{userService.getUsername()}}</span>
             <button class="login"
             (click)="userService.removeToken()">Выйти</button>

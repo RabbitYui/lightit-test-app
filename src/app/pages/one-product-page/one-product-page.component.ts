@@ -27,24 +27,33 @@ export class OneProductPageComponent implements OnInit {
           this.product = res.find((item) => item.id === this.productId);
         }
     );
-    this.productService.getProductReviews(this.productId).subscribe(
-      res => {
-        this.reviews = res;
-        console.log(this.reviews);
-      }
-    );
+    this.getReviews();
     this.initForm();
   }
 
     initForm() {
         this.reviewForm = this.formB.group({
-            name: [''],
             text: [''],
             rating: ['0']
         });
     }
 
+    getReviews() {
+        this.productService.getProductReviews(this.productId).subscribe(
+            res => {
+                this.reviews = res;
+            }
+        );
+    }
     onFormSubmit() {
-        console.log(this.reviewForm.value);
+        const reviewData = this.reviewForm.getRawValue();
+        this.productService.sendReview(this.productId, Number(reviewData.rating), reviewData.text).subscribe(
+            res => {
+                if (res.success === true) {
+                    this.getReviews();
+                    this.reviewForm.reset();
+                }
+            }
+        );
     }
 }

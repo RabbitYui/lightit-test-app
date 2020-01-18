@@ -2,5 +2,7 @@
 
 <div class="app-page">
     <app-header></app-header>
+    <button routerLink="/products" class="back"
+    *ngIf="router.url !== '/products'">На главную</button>
     <router-outlet></router-outlet>
 </div>

@@ -8,9 +8,12 @@ import {tap} from 'rxjs/internal/operators/tap';
 export class UserService {
 
   public apiURL = 'http://smktesting.herokuapp.com/';
-  public userToken: string;
 
   constructor(private http: HttpClient) { }
+
+  get userToken(): string {
+    return localStorage.getItem('userToken') || '';
+  }
 
   registerUser(user) {
     const body = {username: user.username, password: user.password};
@@ -27,28 +30,14 @@ export class UserService {
   }
 
   setToken(token: string) {
-    this.userToken = token;
     localStorage.setItem('userToken', token);
   }
 
-  getToken(): string {
-    if (this.userToken === '') {
-      if (localStorage.getItem('userToken') === null) {
-        return '';
-      } else {
-        return localStorage.getItem('userToken');
-      }
-    } else {
-      return this.userToken;
-    }
-  }
-
-  getUsername(): string {
+   getUsername(): string {
     return localStorage.getItem('userName');
   }
 
   removeToken() {
-    this.userToken = '';
     localStorage.removeItem('userToken');
   }
 }

@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AuthenticationPageComponent implements OnInit {
 
   public userForm: FormGroup;
+  public usernameError: string;
 
   constructor(private formB: FormBuilder,
               private userService: UserService,
@@ -25,17 +26,27 @@ export class AuthenticationPageComponent implements OnInit {
       username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\d-_]{1,16}$/)]],
       password: ['', [Validators.minLength(4), Validators.maxLength(8)]]
     });
+
+    this.userForm.valueChanges.subscribe(changes => {
+      this.userForm.setErrors(null);
+    });
   }
 
   userRegister() {
     const userData = this.userForm.getRawValue();
     this.userService.registerUser(userData).subscribe(
         resp => {
-          this.router.navigateByUrl('/products');
-          localStorage.setItem('userName', userData.username);
+          if (resp.success === false) {
+            if (resp.message === 'User with such username already exists') {
+              this.usernameError = 'Данный пользователь уже существует';
+            }
+          } else {
+            this.router.navigateByUrl('/products');
+            localStorage.setItem('userName', userData.username);
+          }
         },
         error => {
-          alert('АХТУНГ! НИРАБОТАИТ');
+          this.userForm.setErrors({server: true});
         }
     );
   }
@@ -48,7 +59,7 @@ export class AuthenticationPageComponent implements OnInit {
           localStorage.setItem('userName', userData.username);
         },
         error => {
-          alert('АХТУНГ! НИРАБОТАИТ');
+          this.userForm.setErrors({server: true});
         }
     );
   }
