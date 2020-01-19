@@ -2,7 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
-##Getting Started
+## Getting Started
+
 For launch the application, you need to install [AngularCLI](https://cli.angular.io/) first
 
 Clone project from `https://github.com/RabbitYui/lightit-test-app.git`.
