@@ -5,6 +5,7 @@ export class Review {
     createdBy: object;
     rate: number;
     text: string;
+    createdAt: Date;
 
     constructor(review: any) {
         this.id = review.id || 0;
@@ -12,5 +13,6 @@ export class Review {
         this.createdBy = review.created_by || {};
         this.rate = review.rate || 0;
         this.text = review.text || '';
+        this.createdAt = new Date(review.created_at);
     }
 }

@@ -46,6 +46,7 @@ export class OneProductPageComponent implements OnInit {
         this.productService.getProductReviews(this.productId).subscribe(
             res => {
                 this.reviews = res;
+                console.log(this.reviews);
             }
         );
     }

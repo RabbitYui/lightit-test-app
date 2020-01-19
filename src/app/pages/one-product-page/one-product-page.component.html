@@ -22,6 +22,11 @@
                 <p class="review-text">
                    {{rev?.text}}
                 </p>
+                <div class="date">
+                    Отправлено:
+                    {{rev.createdAt.getDate()}}-{{rev.createdAt.getMonth()+1}}-{{rev.createdAt.getFullYear()}}
+                    {{rev.createdAt.getHours()+1}}:{{rev.createdAt.getUTCMinutes()+1}}
+                </div>
             </div>
         </div>
         <div class="add-review inside">
