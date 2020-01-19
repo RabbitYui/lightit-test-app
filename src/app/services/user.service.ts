@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators/tap';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  public apiURL = 'http://smktesting.herokuapp.com/';
+  public apiURL = environment.API;
 
   constructor(private http: HttpClient) { }
 
@@ -17,15 +18,19 @@ export class UserService {
 
   registerUser(user) {
     const body = {username: user.username, password: user.password};
-    return this.http.post(`${this.apiURL}api/register/`, body).pipe(
+    return this.http.post(`${this.apiURL}/register/`, body).pipe(
         tap((res: any)  => this.setToken(res.token))
     );
   }
 
   loginUser(user) {
     const body = {username: user.username, password: user.password};
-    return this.http.post(`${this.apiURL}api/login/`, body).pipe(
-        tap((res: any)  => this.setToken(res.token))
+    return this.http.post(`${this.apiURL}/login/`, body).pipe(
+        tap((res: any)  => {
+          if ( res.success === true) {
+            this.setToken(res.token);
+          }
+        })
     );
   }
 

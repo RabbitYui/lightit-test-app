@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import {ProductsService} from './services/products.service';
 import {HttpClientModule} from '@angular/common/http';
-import { HeaderComponent } from './Layouts/header/header.component';
+import { HeaderComponent } from './layouts/header/header.component';
 import { OneProductPageComponent } from './pages/one-product-page/one-product-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AuthenticationPageComponent } from './pages/authentication-page/authentication-page.component';
