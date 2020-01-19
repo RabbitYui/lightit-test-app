@@ -105,8 +105,7 @@
         }
         textarea {
           font-weight: 300;
-          padding-left: 20px;
-          padding-top: 20px;
+          padding: 20px;
           background: #f7f8fa;
           height: 78px;
           resize: none;
@@ -207,7 +206,14 @@
       }
     }
   }
-
+  .no-review-form {
+    .show-reviews {
+      width: 100%;
+    }
+    .add-review {
+      display: none;
+    }
+  }
   @media (max-width: 770px) {
     .reviews {
       flex-direction: column;
@@ -227,6 +233,36 @@
         order: 1;
         border: none;
         flex-direction: column;
+
+        .form {
+          margin: 0;
+          width: 100%;
+          textarea {
+            font-size: 11px;
+          }
+          .rate {
+            .rate-stars {
+              label {
+                .star {
+                  font-size: 19px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 333px) {
+    .reviews {
+      .show-reviews {
+        .review {
+          .review-top {
+            .user-rating {
+              width: 60%;
+            }
+          }
+        }
       }
     }
   }

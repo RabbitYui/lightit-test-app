@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Review} from '../../models/review.model';
+import {Product} from '../../models/product.model';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-one-product-page',
@@ -11,14 +14,15 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class OneProductPageComponent implements OnInit {
 
   public productId: number;
-  public product: object;
-  public reviews: object [];
+  public product: Product;
+  public reviews: Review [];
   public reviewForm: FormGroup;
 
   constructor(
       private route: ActivatedRoute,
       private productService: ProductsService,
-      private formB: FormBuilder) { }
+      private formB: FormBuilder,
+      public userService: UserService) { }
 
   ngOnInit() {
     this.productId = Number(this.route.snapshot.params.id);

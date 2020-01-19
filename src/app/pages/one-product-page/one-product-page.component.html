@@ -9,11 +9,11 @@
             <p>{{product?.text}}</p>
         </div>
     </div>
-    <div class="reviews">
+    <div class="reviews" [ngClass]="!userService.userToken ? 'no-review-form' : ''">
         <div class="show-reviews inside">
             <div class="review" *ngFor="let rev of reviews">
                 <div class="review-top">
-                    <h4>{{rev.created_by?.username}}</h4>
+                    <h4>{{rev.createdBy?.username}}</h4>
                     <div class="user-rating">
                         <span [ngClass]="rev?.rate >= star? 'star' : 'no-star'"
                               *ngFor="let star of [1,2,3,4,5]">★</span>
