@@ -8,7 +8,9 @@ For launch the application, you need to install [AngularCLI](https://cli.angular
 
 Clone project from `https://github.com/RabbitYui/lightit-test-app.git`.
 
-Run `npm install` 
+Move to project folder.
+
+Run `npm install` .
 
 ## Development server
 
